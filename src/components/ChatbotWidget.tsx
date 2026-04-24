@@ -5,6 +5,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../services/firebase';
 import { cn } from '../lib/utils';
 import { useLocation } from 'react-router-dom';
+import { gulfShoresKnowledgeBase } from '../data/knowledgeBase';
 
 const captureLeadParams: FunctionDeclaration = {
   name: "captureLead",
@@ -85,7 +86,13 @@ export const ChatbotWidget = () => {
     chatRef.current = aiInstance.chats.create({
       model: "gemini-3-flash-preview",
       config: {
-        systemInstruction: "You are a friendly, helpful local guide for Gulf Shores, Alabama. You answer questions about beaches, real estate, and local things to do. Keep it concise. If the user seems interested in relocating, buying property, or needs detailed local assistance, politely ask if they would like to provide their name, email, and phone number so a local expert can follow up. If they give you their contact info, ALWAYS call the 'captureLead' function.",
+        systemInstruction: `You are a friendly, helpful local guide for Gulf Shores, Alabama. You answer questions about beaches, real estate, and local things to do. Keep it concise.
+
+Here is the knowledge base you should use to answer questions:
+
+${gulfShoresKnowledgeBase}
+
+If the user seems interested in relocating, buying property, or needs detailed local assistance, politely ask if they would like to provide their name, email, and phone number so a local expert can follow up. If they give you their contact info, ALWAYS call the 'captureLead' function.`,
         tools: [{ functionDeclarations: [captureLeadParams] }],
       }
     });
