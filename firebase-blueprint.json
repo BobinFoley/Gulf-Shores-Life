@@ -1,0 +1,25 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "A lead captured via the website contact form or chatbot",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "source": { "type": "string", "description": "Form or Chatbot" },
+        "requestDetails": { "type": "string" },
+        "status": { "type": "string", "enum": ["New", "Contacted", "Closed"] },
+        "createdAt": { "type": "integer", "description": "Timestamp in milliseconds" }
+      },
+      "required": ["name", "source", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": { "$ref": "#/entities/Lead" },
+      "description": "Stores captured leads"
+    }
+  }
+}
