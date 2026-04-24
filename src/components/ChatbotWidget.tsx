@@ -54,6 +54,7 @@ export const ChatbotWidget = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const aiRef = useRef<any>(null);
@@ -88,6 +89,7 @@ export const ChatbotWidget = () => {
         tools: [{ functionDeclarations: [captureLeadParams] }],
       }
     });
+    setIsReady(true);
   };
 
   const handleSend = async () => {
@@ -255,12 +257,12 @@ export const ChatbotWidget = () => {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask about the coast..."
-            disabled={isLoading || !process.env.GEMINI_API_KEY}
+            disabled={isLoading || !isReady}
             className="flex-1 bg-natural-bg border border-natural-border px-4 py-2.5 rounded-full text-sm focus:outline-none focus:border-natural-accent focus:ring-1 focus:ring-natural-accent transition-colors disabled:opacity-50"
           />
           <button
             onClick={handleSend}
-            disabled={!input.trim() || isLoading || !process.env.GEMINI_API_KEY}
+            disabled={!input.trim() || isLoading || !isReady}
             className="w-10 h-10 bg-natural-text text-white rounded-full flex items-center justify-center shrink-0 hover:bg-natural-text-main disabled:opacity-50 disabled:bg-natural-border disabled:text-natural-text-muted transition-colors"
           >
             <Send className="w-4 h-4 ml-0.5" />
