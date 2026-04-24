@@ -4,6 +4,7 @@ import { GoogleGenAI, Type, FunctionDeclaration } from "@google/genai";
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../services/firebase';
 import { cn } from '../lib/utils';
+import { useLocation } from 'react-router-dom';
 
 const captureLeadParams: FunctionDeclaration = {
   name: "captureLead",
@@ -25,17 +26,44 @@ interface Message {
   isCustomStatus?: boolean;
 }
 
+const getGreetingForPath = (path: string) => {
+  switch(path) {
+    case '/beaches':
+      return "Hi! Looking for the perfect spot on the sand? Let me know what kind of beach vibe you're looking for.";
+    case '/things-to-do':
+      return "Hi! So much to do in Gulf Shores! Looking for family activities, nightlife, or nature trails?";
+    case '/restaurants':
+      return "Welcome! Craving fresh seafood or a casual beachside burger? Let me know and I'll point you to a great spot.";
+    case '/moving-pros-cons':
+    case '/neighborhoods':
+      return "Thinking about making Gulf Shores your home? I can answer questions or connect you with a local expert.";
+    case '/property-management':
+    case '/vacation-rental-owner-guide':
+       return "Interested in the local real estate market or vacation rentals? I can help you find info or connect you to an expert.";
+    case '/contact':
+       return "Need help getting in touch? Feel free to ask me anything here, too!";
+    default:
+       return "Hi! I'm your Gulf Shores guide. How can I help you today?";
+  }
+};
+
 export const ChatbotWidget = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', content: "Hi! I'm your Gulf Shores guide. How can I help you today?" }
-  ]);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const aiRef = useRef<any>(null);
   const chatRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (!hasInteracted) {
+      setMessages([{ role: 'model', content: getGreetingForPath(location.pathname) }]);
+    }
+  }, [location.pathname, hasInteracted]);
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -64,6 +92,8 @@ export const ChatbotWidget = () => {
 
   const handleSend = async () => {
     if (!input.trim() || !chatRef.current || isLoading) return;
+
+    if (!hasInteracted) setHasInteracted(true);
 
     const userMessage = input.trim();
     setInput('');
