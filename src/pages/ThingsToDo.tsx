@@ -9,28 +9,28 @@ const activities = [
     title: "Alabama Gulf Coast Zoo",
     description: "The 'Little Zoo That Could' - famous for its close encounters with lemurs, kangaroos, and sloths. A must-visit for kids.",
     icon: <Users className="w-6 h-6 text-natural-accent" />,
-    url: "https://www.alabamagulfcoastzoo.com/"
+    url: "/things-to-do/zoo"
   },
   {
     category: "Adventure",
     title: "Gulf State Park Trails",
     description: "28 miles of paved trails through diverse ecosystems. Rent a bike or explore on foot to see alligators, turtles, and hundreds of bird species.",
     icon: <Bike className="w-6 h-6 text-natural-accent" />,
-    url: "https://www.alapark.com/parks/gulf-state-park"
+    url: "/things-to-do/gulf-state-park"
   },
   {
     category: "Iconic Spots",
     title: "The Hangout",
     description: "More than just a restaurant - it's a festival vibe every day. Foam parties, sand pits, and live music right at the beach entrance.",
     icon: <Sparkles className="w-6 h-6 text-natural-accent" />,
-    url: "https://thehangout.com/"
+    url: "/things-to-do/the-hangout"
   },
   {
     category: "Culture",
     title: "The Coastal Arts Center",
     description: "A stunning gallery overlooking Wolf Bay with a hot shop (glass blowing workshops) and clay studio.",
     icon: <Camera className="w-6 h-6 text-natural-accent" />,
-    url: "https://www.coastalartscenter.com/"
+    url: "/things-to-do/coastal-arts-center"
   }
 ];
 
@@ -60,11 +60,9 @@ export const ThingsToDo = () => (
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {activities.map((activity, index) => (
-        <a 
+        <Link 
           key={index} 
-          href={activity.url}
-          target="_blank"
-          rel="noopener noreferrer"
+          to={activity.url}
           className="bg-natural-bg p-8 rounded-[40px] border border-natural-border/40 hover:border-natural-accent/20 transition-all flex flex-col items-start shadow-sm group"
         >
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
@@ -80,9 +78,9 @@ export const ThingsToDo = () => (
             {activity.description}
           </p>
           <span className="mt-auto text-[9px] font-bold uppercase tracking-widest text-natural-accent border-b border-natural-accent/20 pb-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            Visit Website
+            Read Full Guide
           </span>
-        </a>
+        </Link>
       ))}
     </div>
 

@@ -12,63 +12,80 @@ export const Home = () => {
       />
       
       {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row gap-12 px-4 md:px-16 py-12 md:py-20 items-center">
-        <div className="w-full lg:w-[55%] flex flex-col justify-center">
-          <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 bg-natural-accent/10 rounded-full border border-natural-accent/20 w-fit">
-            <span className="w-1.5 h-1.5 bg-natural-accent rounded-full"></span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-natural-text-sub">
-              Coastal Living & Real Estate
-            </span>
-          </div>
-          
-          <h1 className="text-5xl md:text-[88px] font-serif leading-[0.9] text-natural-text-dark mb-8">
-            Gulf Shores <br/>
-            <span className="italic text-natural-accent pl-8 md:pl-16">Uncovered.</span>
-          </h1>
-          
-          <p className="text-lg text-natural-text-sub max-w-md leading-relaxed mb-10 font-light">
-            Discover the definitive guide to visiting, living, and investing in Gulf Shores. Explore pristine white sand beaches, top-rated local dining, and prime real estate opportunities.
-          </p>
-          
-          <div className="flex flex-wrap items-center gap-4 md:gap-6">
-            <Link to="/things-to-do" className="bg-natural-text text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-natural-text-sub transition-colors">
-              Explore Guide
-            </Link>
-            <Link to="/moving-pros-cons" className="border border-natural-border text-natural-text px-8 py-4 md:py-5 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-natural-surface transition-colors">
-              Real Estate
-            </Link>
-          </div>
+      <div className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background Image with Overlays */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://storage.googleapis.com/bobs-bucket-for-mmm2025/gulf-shores-life/gulf-shores-sunset.jpg" 
+            alt="Gulf Shores Sunset" 
+            className="w-full h-full object-cover scale-105"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-natural-text/60 backdrop-blur-[1px]"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-natural-text/90 via-natural-text/40 to-transparent"></div>
         </div>
-        
-        <div className="w-full lg:w-[45%] relative flex items-center justify-center mt-12 lg:mt-0">
-          <div className="w-full max-w-md h-[400px] md:h-[520px] rounded-[80px] relative overflow-hidden shadow-2xl border border-natural-border/20 group">
-            <img 
-              src="https://storage.googleapis.com/bobs-bucket-for-mmm2025/gulf-shores-life/gulf-shores-sunset.jpg" 
-              alt="Gulf Shores Sunset" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-natural-text/60 via-transparent to-transparent"></div>
-            
-            <div className="absolute bottom-10 left-10 right-10">
-              <div className="relative w-full p-8 bg-white/10 backdrop-blur-xl rounded-[40px] border border-white/20 text-center shadow-2xl">
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <Anchor className="w-10 h-10 text-white" />
-                  <p className="font-serif text-base italic text-white leading-relaxed">
+
+        <div className="relative z-10 w-full px-4 md:px-16 py-32">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
+            <div className="w-full lg:w-[65%] flex flex-col justify-center">
+              <div className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 w-fit">
+                <span className="w-2 h-2 bg-natural-accent rounded-full animate-pulse"></span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/90">
+                  Coastal Living & Real Estate
+                </span>
+              </div>
+              
+              <h1 className="text-6xl md:text-[110px] font-serif leading-[0.85] text-white mb-8 tracking-tighter">
+                Gulf Shores <br/>
+                <span className="italic text-natural-accent pl-4 md:pl-12 drop-shadow-2xl">Uncovered.</span>
+              </h1>
+              
+              <p className="text-xl text-white/70 max-w-lg leading-relaxed mb-12 font-light">
+                Discover the definitive guide to visiting, living, and investing in Gulf Shores. Explore pristine white sand beaches, top-rated local dining, and prime real estate opportunities.
+              </p>
+              
+              <div className="flex flex-wrap items-center gap-6">
+                <Link to="/things-to-do" className="bg-natural-accent text-white px-10 py-5 rounded-full text-[11px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl flex items-center gap-2 group">
+                  Explore Guide <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link to="/moving-pros-cons" className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-white/20 transition-all">
+                  Real Estate
+                </Link>
+              </div>
+            </div>
+
+            {/* Float Card for Weight Balance */}
+            <div className="hidden lg:flex flex-col items-center gap-8 translate-y-12">
+               <div className="w-[320px] h-[320px] bg-white/5 backdrop-blur-2xl rounded-full border border-white/10 flex items-center justify-center p-12 text-center relative group">
+                <div className="absolute inset-0 rounded-full border border-white/5 scale-110 animate-pulse opacity-20"></div>
+                <div className="flex flex-col items-center justify-center gap-6">
+                  <Anchor className="w-12 h-12 text-natural-accent opacity-80 group-hover:scale-110 transition-transform duration-500" />
+                  <div className="w-12 h-[1px] bg-white/20"></div>
+                  <p className="font-serif text-lg italic text-white leading-relaxed">
                     "The ultimate resource for coastal life."
                   </p>
                 </div>
+                
+                {/* Floating Stat Badge */}
+                <div className="absolute -bottom-6 -left-6 bg-white w-32 h-32 rounded-full shadow-2xl flex flex-col items-center justify-center p-4 text-center z-20 border-8 border-natural-bg/10 backdrop-blur-xl">
+                  <div className="text-natural-accent text-3xl font-serif leading-none">32</div>
+                  <div className="text-[9px] uppercase tracking-[0.2em] font-bold text-natural-text-muted mt-2">
+                    Miles of Beach
+                  </div>
+                </div>
+              </div>
+              
+              {/* Scroll Indicator */}
+              <div className="flex flex-col items-center gap-4 text-white/30 animate-bounce mt-8">
+                 <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent"></div>
+                 <span className="text-[9px] uppercase tracking-[0.3em] font-bold">Scroll</span>
               </div>
             </div>
           </div>
-          
-          <div className="absolute -bottom-4 md:-bottom-8 -left-4 md:-left-8 bg-white w-28 h-28 md:w-36 md:h-36 rounded-full shadow-2xl border border-natural-surface flex flex-col items-center justify-center p-4 text-center z-10">
-            <div className="text-natural-accent text-xl md:text-2xl font-serif leading-none">32</div>
-            <div className="text-[8px] uppercase tracking-[0.2em] font-bold text-natural-text-muted mt-2">
-              Miles of Beach
-            </div>
-          </div>
         </div>
+        
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-natural-bg to-transparent"></div>
       </div>
 
       {/* Categories Section */}

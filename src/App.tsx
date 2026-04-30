@@ -15,6 +15,10 @@ import { VacationRentalOwnerGuide } from './pages/VacationRentalOwnerGuide';
 import { PropertyManagement } from './pages/PropertyManagement';
 import { MovingProsCons } from './pages/MovingProsCons';
 import { Neighborhoods } from './pages/Neighborhoods';
+import { Zoo } from './pages/activities/Zoo';
+import { GulfStatePark } from './pages/activities/GulfStatePark';
+import { TheHangout } from './pages/activities/TheHangout';
+import { CoastalArts } from './pages/activities/CoastalArts';
 import { Contact } from './pages/Contact';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
@@ -25,6 +29,10 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="things-to-do" element={<ThingsToDo />} />
+        <Route path="things-to-do/zoo" element={<Zoo />} />
+        <Route path="things-to-do/gulf-state-park" element={<GulfStatePark />} />
+        <Route path="things-to-do/the-hangout" element={<TheHangout />} />
+        <Route path="things-to-do/coastal-arts-center" element={<CoastalArts />} />
         <Route path="beaches" element={<Beaches />} />
         <Route path="restaurants" element={<Restaurants />} />
         <Route path="events" element={<Events />} />
