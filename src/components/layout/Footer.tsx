@@ -26,20 +26,30 @@ export const Footer = () => {
         </div>
       </div>
       
-      <div className="flex items-center gap-4">
-        <Link 
-          to="/contact" 
-          className="border border-natural-border text-natural-text px-6 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-natural-surface transition-colors"
+      <div className="flex flex-col items-center md:items-end gap-3">
+        <div className="flex items-center gap-4">
+          <Link 
+            to="/contact" 
+            className="border border-natural-border text-natural-text px-6 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-natural-surface transition-colors whitespace-nowrap"
+          >
+            Contact Us
+          </Link>
+          <Link 
+            to="/login"
+            className="w-12 h-12 border border-natural-border rounded-full flex items-center justify-center text-natural-text-muted hover:bg-natural-surface cursor-pointer transition-colors"
+            title="Partner Login"
+          >
+            ←
+          </Link>
+        </div>
+        <a 
+          href="https://micromanagedmedia.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-[9px] uppercase tracking-[0.2em] text-natural-text-muted hover:text-natural-accent transition-colors font-bold"
         >
-          Contact Us
-        </Link>
-        <Link 
-          to="/login"
-          className="w-12 h-12 border border-natural-border rounded-full flex items-center justify-center text-natural-text-muted hover:bg-natural-surface cursor-pointer transition-colors"
-          title="Partner Login"
-        >
-          ←
-        </Link>
+          Built by Micromanaged Media
+        </a>
       </div>
     </footer>
   );
