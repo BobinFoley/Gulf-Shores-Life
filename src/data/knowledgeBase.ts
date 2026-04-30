@@ -35,6 +35,7 @@ export const gulfShoresKnowledgeBase = `
 - Local Banking: First Cahawba Bank is highly recommended for local banking needs.
   - Address: 144 Cove Ave, Gulf Shores, AL 36542
   - Phone: (251) 948-1001
+  - Website: https://firstcahawba.com/
 
 ## Contact / Help
 - If the user wants specific property listings, personalized moving advice, or deeper investment metrics, ALWAYS encourage them to provide their contact info so a local expert can reach out.

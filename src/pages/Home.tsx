@@ -41,22 +41,25 @@ export const Home = () => {
         </div>
         
         <div className="w-full lg:w-[45%] relative flex items-center justify-center mt-12 lg:mt-0">
-          <div className="w-full max-w-md h-[400px] md:h-[520px] bg-natural-surface rounded-[80px] relative overflow-hidden flex items-center justify-center">
-            <div className="absolute bottom-0 w-full h-[60%] bg-natural-surface-dark/50"></div>
-            <div className="absolute -top-12 -right-12 w-48 h-48 bg-natural-accent/10 rounded-full blur-3xl"></div>
+          <div className="w-full max-w-md h-[400px] md:h-[520px] rounded-[80px] relative overflow-hidden shadow-2xl border border-natural-border/20 group">
+            <img 
+              src="https://storage.googleapis.com/bobs-bucket-for-mmm2025/gulf-shores-life/gulf-shores-sunset.jpg" 
+              alt="Gulf Shores Sunset" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-natural-text/60 via-transparent to-transparent"></div>
             
-            <div className="relative w-40 md:w-48 h-64 md:h-80 bg-natural-bg rounded-[100px] shadow-2xl border border-natural-border/30 flex items-center justify-center p-6 text-center">
-              <div className="flex flex-col items-center justify-center gap-6">
-                <Anchor className="w-12 h-12 text-natural-accent opacity-80" />
-                <div className="w-12 h-[1px] bg-natural-border"></div>
-                <p className="font-serif text-sm italic text-natural-text-main">
-                  "The ultimate resource for coastal life."
-                </p>
+            <div className="absolute bottom-10 left-10 right-10">
+              <div className="relative w-full p-8 bg-white/10 backdrop-blur-xl rounded-[40px] border border-white/20 text-center shadow-2xl">
+                <div className="flex flex-col items-center justify-center gap-4">
+                  <Anchor className="w-10 h-10 text-white" />
+                  <p className="font-serif text-base italic text-white leading-relaxed">
+                    "The ultimate resource for coastal life."
+                  </p>
+                </div>
               </div>
             </div>
-            
-            <div className="absolute top-12 left-12 w-4 h-4 bg-natural-accent rounded-full opacity-40"></div>
-            <div className="absolute bottom-24 right-12 w-6 h-6 bg-natural-border rounded-full"></div>
           </div>
           
           <div className="absolute -bottom-4 md:-bottom-8 -left-4 md:-left-8 bg-white w-28 h-28 md:w-36 md:h-36 rounded-full shadow-2xl border border-natural-surface flex flex-col items-center justify-center p-4 text-center z-10">
@@ -146,6 +149,47 @@ export const Home = () => {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Featured Partner Section */}
+      <div className="px-4 md:px-16 py-20 bg-natural-surface border-y border-natural-border">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="bg-white p-12 rounded-[60px] shadow-sm border border-natural-border/20 flex-1">
+             <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 bg-natural-accent/10 rounded-full border border-natural-accent/20">
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-natural-accent">Local Recommendation</span>
+            </div>
+            <h2 className="text-3xl font-serif text-natural-text-dark mb-6">Expert Banking <span className="italic text-natural-accent">Tailored for the Coast.</span></h2>
+            <p className="text-natural-text-sub font-light leading-relaxed mb-10 max-w-xl">
+              For both personal and commercial banking on the Gulf Coast, we highly recommend <b>First Cahawba Bank</b>. Their local expertise and personalized service make them the ideal partner for residents and investors alike.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-[11px] font-bold uppercase tracking-widest text-natural-text-muted">
+               <div>
+                  <div className="text-natural-accent mb-2">Location</div>
+                  <div className="text-natural-text-main">144 Cove Ave<br/>Gulf Shores, AL 36542</div>
+               </div>
+               <div>
+                  <div className="text-natural-accent mb-2">Phone</div>
+                  <div className="text-natural-text-main">(251) 948-1001</div>
+               </div>
+            </div>
+          </div>
+          <div className="w-full md:w-1/3 flex flex-col gap-6">
+             <div className="bg-natural-text text-white p-10 rounded-[50px] shadow-lg">
+                <h3 className="text-xl font-serif mb-4 italic">Reliable.</h3>
+                <p className="text-xs text-white/60 font-light leading-relaxed font-sans">
+                  "Finding a bank that understands the nuances of coastal real estate was key for our investment strategy."
+                </p>
+             </div>
+             <a 
+               href="https://firstcahawba.com/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="bg-white border border-natural-border text-natural-text-main px-8 py-5 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-natural-bg transition-all text-center block"
+             >
+                Visit Website
+             </a>
           </div>
         </div>
       </div>
