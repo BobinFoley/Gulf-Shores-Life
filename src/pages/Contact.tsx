@@ -92,7 +92,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h3 className="text-[11px] font-bold uppercase tracking-widest text-natural-text-muted mb-1">Call Our Office</h3>
-                <p className="text-natural-text-dark font-serif text-lg">(251) 948-1001</p>
+                <p className="text-natural-text-dark font-serif text-lg">(251) 202-7337</p>
               </div>
             </div>
 
